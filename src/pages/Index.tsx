@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Calendar, MapPin, Phone } from "lucide-react";
+import PricingSection from "@/components/PricingSection";
 
 const Index = () => {
   useEffect(() => {
@@ -149,6 +150,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <PricingSection />
 
       {/* Schedule Section */}
       <section className="py-20">
