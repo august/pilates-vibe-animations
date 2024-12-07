@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { MessageCircle, X, Send } from "lucide-react";
@@ -19,6 +19,15 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -68,7 +77,7 @@ const ChatBot = () => {
       </Button>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="fixed bottom-4 right-4 h-[600px] max-w-[400px] flex flex-col p-0 gap-0 bg-charcoal border border-taupe/20">
+        <DialogContent className="fixed bottom-4 right-4 h-[500px] max-w-[400px] flex flex-col p-0 gap-0 bg-charcoal border border-taupe/20">
           <DialogHeader className="border-b border-taupe/20 p-4 bg-charcoal">
             <DialogTitle className="text-cream">Chat with us</DialogTitle>
             <Button
@@ -82,7 +91,7 @@ const ChatBot = () => {
           </DialogHeader>
 
           <div className="flex flex-1 flex-col justify-between p-4 bg-charcoal/95">
-            <div className="flex-1 space-y-4 overflow-y-auto">
+            <div className="flex-1 space-y-4 overflow-y-auto mb-4">
               {messages.map((message, i) => (
                 <div
                   key={i}
@@ -108,9 +117,10 @@ const ChatBot = () => {
                   </div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
 
-            <div className="mt-4 flex gap-2">
+            <div className="flex gap-2">
               <Textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
