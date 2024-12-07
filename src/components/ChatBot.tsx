@@ -72,20 +72,20 @@ const ChatBot = () => {
       </Button>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="fixed bottom-4 right-4 h-[600px] max-w-[400px] flex flex-col p-0 gap-0">
-          <DialogHeader className="border-b p-4">
-            <DialogTitle>Chat with us</DialogTitle>
+        <DialogContent className="fixed bottom-4 right-4 h-[600px] max-w-[400px] flex flex-col p-0 gap-0 bg-charcoal border border-taupe/20">
+          <DialogHeader className="border-b border-taupe/20 p-4 bg-charcoal">
+            <DialogTitle className="text-cream">Chat with us</DialogTitle>
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-2 top-2"
+              className="absolute right-2 top-2 text-cream hover:text-white hover:bg-moss/20"
               onClick={() => setIsOpen(false)}
             >
               <X className="h-4 w-4" />
             </Button>
           </DialogHeader>
 
-          <div className="flex flex-1 flex-col justify-between p-4">
+          <div className="flex flex-1 flex-col justify-between p-4 bg-charcoal/95">
             <div className="flex-1 space-y-4 overflow-y-auto">
               {messages.map((message, i) => (
                 <div
@@ -97,7 +97,7 @@ const ChatBot = () => {
                   <div
                     className={`rounded-lg px-4 py-2 ${
                       message.role === "assistant"
-                        ? "bg-gray-100"
+                        ? "bg-taupe/20 text-cream"
                         : "bg-moss text-white"
                     } max-w-[80%]`}
                   >
@@ -107,7 +107,7 @@ const ChatBot = () => {
               ))}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="rounded-lg bg-gray-100 px-4 py-2">
+                  <div className="rounded-lg bg-taupe/20 px-4 py-2 text-cream">
                     <span className="animate-pulse">Typing...</span>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ const ChatBot = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message..."
-                className="min-h-[50px] resize-none"
+                className="min-h-[50px] resize-none bg-taupe/10 text-cream placeholder:text-cream/50 border-taupe/20 focus-visible:ring-moss"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
