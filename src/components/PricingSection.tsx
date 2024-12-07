@@ -170,17 +170,19 @@ const PricingSection = () => {
           </h2>
 
           <Tabs defaultValue={pricingCategories[0].title} className="w-full">
-            <TabsList className="w-full flex flex-wrap justify-center gap-2 bg-transparent mb-6 md:mb-8">
-              {pricingCategories.map((category) => (
-                <TabsTrigger
-                  key={category.title}
-                  value={category.title}
-                  className="data-[state=active]:bg-moss data-[state=active]:text-white text-xs md:text-base px-2 py-1 md:px-4 md:py-2 whitespace-normal text-center min-h-[40px] md:min-h-[44px] h-auto"
-                >
-                  {category.title}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="overflow-x-auto pb-2 -mb-2">
+              <TabsList className="w-max flex bg-transparent mb-6 md:mb-8 mx-auto">
+                {pricingCategories.map((category) => (
+                  <TabsTrigger
+                    key={category.title}
+                    value={category.title}
+                    className="data-[state=active]:bg-moss data-[state=active]:text-white text-xs md:text-base px-3 py-1.5 md:px-4 md:py-2 whitespace-nowrap text-center min-h-[40px] md:min-h-[44px] h-auto mx-1"
+                  >
+                    {category.title}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
 
             {pricingCategories.map((category) => (
               <TabsContent key={category.title} value={category.title}>
