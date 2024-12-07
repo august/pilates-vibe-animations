@@ -11,14 +11,14 @@ interface PricingOption {
 export const PricingCard = ({ option }: { option: PricingOption }) => {
   return (
     <Card className="group bg-cream transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-      <CardHeader>
-        <CardTitle className="font-serif text-lg md:text-xl break-words hyphens-auto">
+      <CardHeader className="p-4 md:p-6">
+        <CardTitle className="font-serif text-base md:text-xl break-words hyphens-auto">
           {option.name}
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="mb-4">
-          <p className="text-2xl md:text-3xl font-medium text-moss">
+      <CardContent className="p-4 md:p-6">
+        <div className="mb-3 md:mb-4">
+          <p className="text-xl md:text-3xl font-medium text-moss">
             ${option.price}
           </p>
           {option.perPerson && (
@@ -31,7 +31,7 @@ export const PricingCard = ({ option }: { option: PricingOption }) => {
           )}
         </div>
         {option.details && (
-          <ul className="space-y-2 text-charcoal/80 text-sm">
+          <ul className="space-y-1 md:space-y-2 text-charcoal/80 text-xs md:text-sm">
             {option.details.map((detail, idx) => (
               <li key={idx}>{detail}</li>
             ))}

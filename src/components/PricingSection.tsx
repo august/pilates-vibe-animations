@@ -162,20 +162,20 @@ const pricingCategories = [
 
 const PricingSection = () => {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="reveal">
-          <h2 className="text-center font-serif text-3xl font-medium md:text-4xl mb-12">
+          <h2 className="text-center font-serif text-3xl font-medium md:text-4xl mb-8 md:mb-12">
             Pricing
           </h2>
 
           <Tabs defaultValue={pricingCategories[0].title} className="w-full">
-            <TabsList className="w-full flex flex-wrap justify-center gap-2 bg-transparent mb-8">
+            <TabsList className="w-full flex flex-wrap justify-center gap-2 bg-transparent mb-6 md:mb-8">
               {pricingCategories.map((category) => (
                 <TabsTrigger
                   key={category.title}
                   value={category.title}
-                  className="data-[state=active]:bg-moss data-[state=active]:text-white text-sm md:text-base px-2 py-1 md:px-4 md:py-2 whitespace-normal text-center min-h-[44px] h-auto"
+                  className="data-[state=active]:bg-moss data-[state=active]:text-white text-xs md:text-base px-2 py-1 md:px-4 md:py-2 whitespace-normal text-center min-h-[40px] md:min-h-[44px] h-auto"
                 >
                   {category.title}
                 </TabsTrigger>
