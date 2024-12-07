@@ -9,7 +9,7 @@ const HeroSection = () => {
         />
         <div className="absolute inset-0 bg-black/30" />
       </div>
-      <div className="relative flex h-full items-center justify-center text-center">
+      <div className="relative flex h-full items-end pb-32 justify-center text-center">
         <div className="px-4">
           <h1 className="animate-fade-up font-serif text-5xl font-medium text-white md:text-7xl">
             Elevate Your Practice
