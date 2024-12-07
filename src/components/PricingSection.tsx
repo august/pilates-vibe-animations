@@ -1,72 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const PricingSection = () => {
-  return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-4">
-        <div className="reveal">
-          <h2 className="text-center font-serif text-3xl font-medium md:text-4xl mb-12">
-            Pricing
-          </h2>
-
-          {pricingCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-16 last:mb-0">
-              <div className="max-w-3xl mx-auto mb-8 text-center">
-                <h3 className="font-serif text-2xl mb-4">{category.title}</h3>
-                <p className="text-charcoal/80">{category.description}</p>
-              </div>
-              
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                {category.options.map((option, index) => (
-                  <Card 
-                    key={index} 
-                    className="group bg-cream transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                  >
-                    <CardHeader>
-                      <CardTitle className="font-serif text-xl">{option.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="mb-4">
-                        <p className="text-3xl font-medium text-moss">
-                          ${option.price}
-                        </p>
-                        {option.perPerson && (
-                          <p className="text-sm text-charcoal/60">per person</p>
-                        )}
-                        {option.pricePerSession && (
-                          <p className="text-sm text-charcoal/60">
-                            (${option.pricePerSession} each)
-                          </p>
-                        )}
-                      </div>
-                      {option.details && (
-                        <ul className="space-y-2 text-charcoal/80">
-                          {option.details.map((detail, idx) => (
-                            <li key={idx}>{detail}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-              
-              {category.showGetStarted && (
-                <div className="text-center mt-8">
-                  <p className="text-charcoal/80">
-                    Get Started Today!
-                    <br />
-                    No contract. Cancel Anytime
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PricingCategory } from "./pricing/PricingCategory";
 
 const pricingCategories = [
   {
@@ -226,5 +159,39 @@ const pricingCategories = [
     showGetStarted: true
   }
 ];
+
+const PricingSection = () => {
+  return (
+    <section className="bg-white py-20">
+      <div className="container mx-auto px-4">
+        <div className="reveal">
+          <h2 className="text-center font-serif text-3xl font-medium md:text-4xl mb-12">
+            Pricing
+          </h2>
+
+          <Tabs defaultValue={pricingCategories[0].title} className="w-full">
+            <TabsList className="w-full flex flex-wrap justify-center gap-2 bg-transparent mb-8">
+              {pricingCategories.map((category) => (
+                <TabsTrigger
+                  key={category.title}
+                  value={category.title}
+                  className="data-[state=active]:bg-moss data-[state=active]:text-white"
+                >
+                  {category.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            {pricingCategories.map((category) => (
+              <TabsContent key={category.title} value={category.title}>
+                <PricingCategory {...category} />
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default PricingSection;
