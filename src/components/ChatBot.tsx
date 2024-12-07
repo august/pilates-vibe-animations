@@ -54,6 +54,29 @@ const ChatBot = () => {
   };
 
   const generateResponse = (input: string, conversationHistory: Message[]): string => {
+    const lastBotMessage = conversationHistory
+      .slice()
+      .reverse()
+      .find(msg => msg.role === "assistant")?.content;
+
+    // If the last bot message was asking about preference between private and group
+    if (lastBotMessage?.includes("Would you prefer to try a private session or join a group class?") ||
+        lastBotMessage?.includes("private session or join a group class")) {
+      if (input.includes("private")) {
+        return "Great choice! For private sessions, I recommend starting with our Introductory Session at $69. This one-on-one session allows our instructor to assess your needs and create a personalized plan. Would you like to schedule your first private session?";
+      }
+      if (input.includes("group")) {
+        return "Excellent! Our group classes are a great way to experience Pilates. Your first class is just $25, and we offer various class times throughout the week. Would you like to see our class schedule or book your first group class?";
+      }
+    }
+
+    // If the last message was about scheduling a private session
+    if (lastBotMessage?.includes("schedule your first private session")) {
+      if (input.includes("yes") || input.includes("sure") || input.includes("book")) {
+        return "Perfect! You can book your private session by calling us at (555) 123-4567 or visiting our online booking system. What day and time works best for you?";
+      }
+    }
+
     // Check for greetings
     if (input.match(/\b(hi|hello|hey|good morning|good afternoon|good evening)\b/)) {
       return "Hello! How can I help you today? I can tell you about our Pilates classes, pricing, or help you get started!";
@@ -79,27 +102,6 @@ const ChatBot = () => {
         return "Perfect! You can book group classes through our online scheduling system or mobile app. Your first class is just $25. Would you like me to guide you through the booking process?";
       }
       return "We'd love to get you started! Would you prefer to try a private session or join a group class? I can help you book either one.";
-    }
-
-    // Check for Pilates information
-    if (input.includes("pilates") || input.includes("exercise") || input.includes("workout")) {
-      if (input.includes("beginner") || input.includes("start")) {
-        return "Pilates is perfect for beginners! We recommend starting with either a private session or our Fundamentals class. This will help you learn the basic principles and ensure proper form. Would you like to know more about our beginner options?";
-      }
-      if (input.includes("benefit")) {
-        return "Pilates offers numerous benefits including:\n- Improved core strength and stability\n- Better posture and flexibility\n- Enhanced mind-body connection\n- Low-impact, full-body workout\n- Injury prevention and rehabilitation\nWould you like to experience these benefits yourself?";
-      }
-      return "Pilates is a comprehensive exercise method that strengthens your core, improves flexibility, and enhances overall body awareness. We offer both private sessions and group classes. Would you like to know more about our class options?";
-    }
-
-    // Check for studio information
-    if (input.includes("studio") || input.includes("location") || input.includes("address") || input.includes("where")) {
-      return "Our studio is located at 123 Wellness Street in the City Center. We have state-of-the-art Reformer equipment and a peaceful, welcoming atmosphere. We're open Monday-Friday 6am-8pm, and Saturday-Sunday 8am-2pm. Would you like directions or information about parking?";
-    }
-
-    // Check for instructor questions
-    if (input.includes("instructor") || input.includes("teacher") || input.includes("trainer")) {
-      return "Our instructors are all certified Pilates professionals with extensive training and experience. Each brings their own unique expertise and teaching style. Would you like to know more about a specific instructor or their specialties?";
     }
 
     // Default response with conversation continuation
