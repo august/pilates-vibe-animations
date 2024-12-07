@@ -7,6 +7,7 @@ import TeamSection from "@/components/TeamSection";
 import PricingSection from "@/components/PricingSection";
 import ScheduleSection from "@/components/ScheduleSection";
 import ContactSection from "@/components/ContactSection";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const Index = () => {
       <PricingSection />
       <ScheduleSection />
       <ContactSection />
+      <ChatBot />
     </div>
   );
 };
