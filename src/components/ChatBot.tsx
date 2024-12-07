@@ -72,7 +72,7 @@ const ChatBot = () => {
       </Button>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="bottom-0 right-0 h-[600px] max-w-[400px] translate-x-0 translate-y-0 rounded-lg p-0 sm:bottom-4 sm:right-4 sm:h-[600px] sm:max-w-[400px]">
+        <DialogContent className="fixed bottom-4 right-4 h-[600px] max-w-[400px] flex flex-col p-0 gap-0">
           <DialogHeader className="border-b p-4">
             <DialogTitle>Chat with us</DialogTitle>
             <Button
@@ -85,7 +85,7 @@ const ChatBot = () => {
             </Button>
           </DialogHeader>
 
-          <div className="flex h-full flex-col justify-between p-4">
+          <div className="flex flex-1 flex-col justify-between p-4">
             <div className="flex-1 space-y-4 overflow-y-auto">
               {messages.map((message, i) => (
                 <div
