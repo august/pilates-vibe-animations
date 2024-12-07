@@ -63,18 +63,16 @@ const ChatBot = () => {
     if (lastBotMessage?.includes("Would you prefer to try a private session or join a group class?") ||
         lastBotMessage?.includes("private session or join a group class")) {
       if (input.includes("private")) {
-        return "Great choice! For private sessions, I recommend starting with our Introductory Session at $69. This one-on-one session allows our instructor to assess your needs and create a personalized plan. Would you like to schedule your first private session?";
+        return "Great choice! For private sessions, I recommend starting with our Introductory Session at $69. This one-on-one session allows our instructor to assess your needs and create a personalized plan. You can book your session at https://clients.mindbodyonline.com/classic/mainclass?studioid=41059 - would you like me to explain the booking process?";
       }
       if (input.includes("group")) {
-        return "Excellent! Our group classes are a great way to experience Pilates. Your first class is just $25, and we offer various class times throughout the week. Would you like to see our class schedule or book your first group class?";
+        return "Excellent! Our group classes are a great way to experience Pilates. Your first class is just $25, and we offer various class times throughout the week. You can view the schedule and book your class at https://clients.mindbodyonline.com/classic/mainclass?studioid=41059 - would you like me to explain how to navigate the booking system?";
       }
     }
 
-    // If the last message was about scheduling a private session
-    if (lastBotMessage?.includes("schedule your first private session")) {
-      if (input.includes("yes") || input.includes("sure") || input.includes("book")) {
-        return "Perfect! You can book your private session by calling us at (555) 123-4567 or visiting our online booking system. What day and time works best for you?";
-      }
+    // If the last message was about scheduling
+    if (lastBotMessage?.includes("schedule") || lastBotMessage?.includes("book")) {
+      return "You can view our schedule and book your class at https://clients.mindbodyonline.com/classic/mainclass?studioid=41059. Once there, you can select your preferred class time and complete your registration. Would you like help with anything else?";
     }
 
     // Check for greetings
@@ -85,10 +83,10 @@ const ChatBot = () => {
     // Check for pricing related queries
     if (input.includes("price") || input.includes("cost") || input.includes("package") || input.includes("membership")) {
       if (input.includes("private") || input.includes("individual")) {
-        return "For private sessions, we offer:\n- Introductory Private Session: $69\n- Single Session: $85\n- 5-Pack: $400 ($80/session)\n- 10-Pack: $750 ($75/session)\nWould you like to book an introductory session?";
+        return "For private sessions, we offer:\n- Introductory Private Session: $69\n- Single Session: $85\n- 5-Pack: $400 ($80/session)\n- 10-Pack: $750 ($75/session)\nYou can book your session at https://clients.mindbodyonline.com/classic/mainclass?studioid=41059. Would you like me to explain the booking process?";
       }
       if (input.includes("group") || input.includes("class")) {
-        return "Our group class pricing is:\n- First Class Special: $25\n- Single Class: $35\n- 5-Class Pack: $150\n- 10-Class Pack: $280\n- Unlimited Monthly: $299\nWould you like to try your first class at the special rate?";
+        return "Our group class pricing is:\n- First Class Special: $25\n- Single Class: $35\n- 5-Class Pack: $150\n- 10-Class Pack: $280\n- Unlimited Monthly: $299\nYou can book your class at https://clients.mindbodyonline.com/classic/mainclass?studioid=41059. Would you like me to help you get started?";
       }
       return "We have options for both private sessions and group classes. Private sessions start at $69 for your first session, and group classes start at $25 for your first class. Would you like to know more about private sessions or group classes?";
     }
@@ -96,12 +94,12 @@ const ChatBot = () => {
     // Check for booking and scheduling
     if (input.includes("book") || input.includes("schedule") || input.includes("sign up") || input.includes("register")) {
       if (input.includes("private")) {
-        return "Great choice! For private sessions, I recommend starting with our Introductory Session. You can book online at our website or call us at (555) 123-4567. When would you like to schedule your session?";
+        return "For private sessions, you can view availability and book online at https://clients.mindbodyonline.com/classic/mainclass?studioid=41059. Would you like me to explain how to navigate the booking system?";
       }
       if (input.includes("class")) {
-        return "Perfect! You can book group classes through our online scheduling system or mobile app. Your first class is just $25. Would you like me to guide you through the booking process?";
+        return "You can view our class schedule and book online at https://clients.mindbodyonline.com/classic/mainclass?studioid=41059. Your first class is just $25. Would you like me to explain how to navigate the booking system?";
       }
-      return "We'd love to get you started! Would you prefer to try a private session or join a group class? I can help you book either one.";
+      return "We'd love to get you started! Would you prefer to try a private session or join a group class? I can help guide you through the booking process for either option.";
     }
 
     // Default response with conversation continuation
