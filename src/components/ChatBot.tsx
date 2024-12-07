@@ -46,36 +46,64 @@ const ChatBot = () => {
     setInput("");
     setIsTyping(true);
 
-    // Simulate a small delay for better UX
     await new Promise(resolve => setTimeout(resolve, 500));
 
-    const response = generateResponse(input.toLowerCase());
+    const response = generateResponse(input.toLowerCase(), messages);
     setMessages((prev) => [...prev, { role: "assistant", content: response }]);
     setIsTyping(false);
   };
 
-  const generateResponse = (input: string): string => {
-    if (input.includes("price") || input.includes("cost") || input.includes("package")) {
-      return "We offer various pricing options to suit your needs! Our Introductory Private session is $69, and we have packages ranging from single sessions to 20-packs. For group classes, your first class is just $25! Would you like to see our full pricing menu or get started with a class?";
-    }
-    
-    if (input.includes("sign up") || input.includes("book") || input.includes("schedule")) {
-      return "Great choice! You can book your first class at [booking URL]. I recommend starting with our Introductory Private session to get personalized attention and guidance. Would you like me to tell you more about what to expect in your first session?";
-    }
-    
-    if (input.includes("pilates")) {
-      return "Pilates is a form of exercise that focuses on core strength, flexibility, and overall body awareness. It's great for all fitness levels and can help with posture, injury prevention, and overall wellness. Would you like to try a class and experience the benefits yourself?";
-    }
-    
-    if (input.includes("studio") || input.includes("location")) {
-      return "Our studio is located at 123 Wellness Street in the City Center. We have state-of-the-art Reformer equipment and experienced instructors ready to guide you through your Pilates journey. Would you like to schedule a visit?";
-    }
-    
-    if (input.includes("instructor") || input.includes("teacher")) {
-      return "Our instructors are highly qualified and passionate about Pilates. They're certified in various methods and committed to helping you achieve your fitness goals. Would you like to meet them in an Introductory Private session?";
+  const generateResponse = (input: string, conversationHistory: Message[]): string => {
+    // Check for greetings
+    if (input.match(/\b(hi|hello|hey|good morning|good afternoon|good evening)\b/)) {
+      return "Hello! How can I help you today? I can tell you about our Pilates classes, pricing, or help you get started!";
     }
 
-    return "I'm here to help you learn about Pilates and our studio! You can ask me about our classes, pricing, location, or anything else you'd like to know. What interests you most about starting Pilates?";
+    // Check for pricing related queries
+    if (input.includes("price") || input.includes("cost") || input.includes("package") || input.includes("membership")) {
+      if (input.includes("private") || input.includes("individual")) {
+        return "For private sessions, we offer:\n- Introductory Private Session: $69\n- Single Session: $85\n- 5-Pack: $400 ($80/session)\n- 10-Pack: $750 ($75/session)\nWould you like to book an introductory session?";
+      }
+      if (input.includes("group") || input.includes("class")) {
+        return "Our group class pricing is:\n- First Class Special: $25\n- Single Class: $35\n- 5-Class Pack: $150\n- 10-Class Pack: $280\n- Unlimited Monthly: $299\nWould you like to try your first class at the special rate?";
+      }
+      return "We have options for both private sessions and group classes. Private sessions start at $69 for your first session, and group classes start at $25 for your first class. Would you like to know more about private sessions or group classes?";
+    }
+
+    // Check for booking and scheduling
+    if (input.includes("book") || input.includes("schedule") || input.includes("sign up") || input.includes("register")) {
+      if (input.includes("private")) {
+        return "Great choice! For private sessions, I recommend starting with our Introductory Session. You can book online at our website or call us at (555) 123-4567. When would you like to schedule your session?";
+      }
+      if (input.includes("class")) {
+        return "Perfect! You can book group classes through our online scheduling system or mobile app. Your first class is just $25. Would you like me to guide you through the booking process?";
+      }
+      return "We'd love to get you started! Would you prefer to try a private session or join a group class? I can help you book either one.";
+    }
+
+    // Check for Pilates information
+    if (input.includes("pilates") || input.includes("exercise") || input.includes("workout")) {
+      if (input.includes("beginner") || input.includes("start")) {
+        return "Pilates is perfect for beginners! We recommend starting with either a private session or our Fundamentals class. This will help you learn the basic principles and ensure proper form. Would you like to know more about our beginner options?";
+      }
+      if (input.includes("benefit")) {
+        return "Pilates offers numerous benefits including:\n- Improved core strength and stability\n- Better posture and flexibility\n- Enhanced mind-body connection\n- Low-impact, full-body workout\n- Injury prevention and rehabilitation\nWould you like to experience these benefits yourself?";
+      }
+      return "Pilates is a comprehensive exercise method that strengthens your core, improves flexibility, and enhances overall body awareness. We offer both private sessions and group classes. Would you like to know more about our class options?";
+    }
+
+    // Check for studio information
+    if (input.includes("studio") || input.includes("location") || input.includes("address") || input.includes("where")) {
+      return "Our studio is located at 123 Wellness Street in the City Center. We have state-of-the-art Reformer equipment and a peaceful, welcoming atmosphere. We're open Monday-Friday 6am-8pm, and Saturday-Sunday 8am-2pm. Would you like directions or information about parking?";
+    }
+
+    // Check for instructor questions
+    if (input.includes("instructor") || input.includes("teacher") || input.includes("trainer")) {
+      return "Our instructors are all certified Pilates professionals with extensive training and experience. Each brings their own unique expertise and teaching style. Would you like to know more about a specific instructor or their specialties?";
+    }
+
+    // Default response with conversation continuation
+    return "I'm here to help you learn about our Pilates studio and services! You can ask me about our classes, pricing, instructors, or getting started. What interests you most?";
   };
 
   return (
