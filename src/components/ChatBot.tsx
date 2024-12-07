@@ -20,16 +20,19 @@ const ChatBot = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return;
 
     const userMessage = { role: "user" as const, content: input.trim() };
@@ -37,7 +40,9 @@ const ChatBot = () => {
     setInput("");
     setIsTyping(true);
 
-    // Generate response immediately instead of using setTimeout
+    // Simulate a small delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 500));
+
     const response = generateResponse(input.toLowerCase());
     setMessages((prev) => [...prev, { role: "assistant", content: response }]);
     setIsTyping(false);
@@ -91,7 +96,11 @@ const ChatBot = () => {
           </DialogHeader>
 
           <div className="flex flex-1 flex-col justify-between p-4 bg-charcoal/95">
-            <div className="flex-1 space-y-4 overflow-y-auto mb-4">
+            <div 
+              ref={messagesContainerRef}
+              className="flex-1 space-y-4 overflow-y-auto mb-4 pr-2 scroll-smooth"
+              style={{ maxHeight: "calc(100% - 60px)" }}
+            >
               {messages.map((message, i) => (
                 <div
                   key={i}
