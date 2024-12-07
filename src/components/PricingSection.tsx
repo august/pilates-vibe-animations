@@ -175,7 +175,7 @@ const PricingSection = () => {
                 <TabsTrigger
                   key={category.title}
                   value={category.title}
-                  className="data-[state=active]:bg-moss data-[state=active]:text-white"
+                  className="data-[state=active]:bg-moss data-[state=active]:text-white text-sm md:text-base px-2 py-1 md:px-4 md:py-2 whitespace-normal text-center min-h-[44px] h-auto"
                 >
                   {category.title}
                 </TabsTrigger>
