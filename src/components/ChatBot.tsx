@@ -24,13 +24,19 @@ const ChatBot = () => {
 
   const scrollToBottom = () => {
     if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+      const container = messagesContainerRef.current;
+      container.scrollTo({
+        top: container.scrollHeight,
+        behavior: "smooth"
+      });
     }
   };
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+    if (isOpen) {
+      scrollToBottom();
+    }
+  }, [messages, isOpen]);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -95,11 +101,15 @@ const ChatBot = () => {
             </Button>
           </DialogHeader>
 
-          <div className="flex flex-1 flex-col justify-between p-4 bg-charcoal/95">
+          <div className="flex flex-1 flex-col justify-between p-4 bg-charcoal/95 overflow-hidden">
             <div 
               ref={messagesContainerRef}
-              className="flex-1 space-y-4 overflow-y-auto mb-4 pr-2 scroll-smooth"
-              style={{ maxHeight: "calc(100% - 60px)" }}
+              className="flex-1 space-y-4 overflow-y-auto pr-2 scroll-smooth"
+              style={{ 
+                maxHeight: "calc(100% - 60px)",
+                scrollbarWidth: "thin",
+                scrollbarColor: "rgba(142, 127, 127, 0.3) transparent"
+              }}
             >
               {messages.map((message, i) => (
                 <div
@@ -129,7 +139,7 @@ const ChatBot = () => {
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 mt-4">
               <Textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
