@@ -3,7 +3,7 @@ const HeroSection = () => {
     <section className="relative h-screen">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&q=80"
           alt="Pilates Group Class"
           className="h-full w-full object-cover"
         />
