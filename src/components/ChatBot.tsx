@@ -20,7 +20,7 @@ const ChatBot = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = async () => {
+  const handleSend = () => {
     if (!input.trim()) return;
 
     const userMessage = { role: "user" as const, content: input.trim() };
@@ -28,14 +28,10 @@ const ChatBot = () => {
     setInput("");
     setIsTyping(true);
 
-    // Simulate AI response based on keywords
+    // Generate response immediately instead of using setTimeout
     const response = generateResponse(input.toLowerCase());
-    
-    // Simulate typing delay
-    setTimeout(() => {
-      setMessages((prev) => [...prev, { role: "assistant", content: response }]);
-      setIsTyping(false);
-    }, 1000);
+    setMessages((prev) => [...prev, { role: "assistant", content: response }]);
+    setIsTyping(false);
   };
 
   const generateResponse = (input: string): string => {
