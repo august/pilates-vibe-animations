@@ -154,7 +154,7 @@ const ChatBot = () => {
               />
               <Button
                 onClick={handleSend}
-                className="bg-moss hover:bg-moss/90"
+                className="bg-taupe/50 hover:bg-taupe/40"
                 size="icon"
               >
                 <Send className="h-4 w-4" />
