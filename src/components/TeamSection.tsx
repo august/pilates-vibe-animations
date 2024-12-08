@@ -1,21 +1,33 @@
 const team = [
   {
-    name: "Sarah Johnson",
-    role: "Lead Instructor",
+    name: "Kimberly Dye",
+    role: "Owner/Instructor",
     image:
-      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80",
+      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
   },
   {
-    name: "Emma Davis",
-    role: "Reformer Specialist",
+    name: "Erin Gilmore",
+    role: "Instructor",
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
+      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
   },
   {
-    name: "Michael Chen",
-    role: "Pre/Postnatal Expert",
+    name: "Jill Dailey",
+    role: "Instructor",
     image:
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80",
+      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
+  },
+  {
+    name: "Kimberly Dye",
+    role: "Instructor",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
+  },
+  {
+    name: "Kimberly Dye",
+    role: "Instructor",
+    image:
+      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
   },
 ];
 
