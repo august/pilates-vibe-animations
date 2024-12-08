@@ -1,33 +1,33 @@
 const team = [
   {
-    name: "Kimberly Dye",
+    name: "Beth Trometer",
     role: "Owner/Instructor",
     image:
-      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
+      "https://pilates-connection.s3.amazonaws.com/img/team-beth-t.png",
   },
   {
-    name: "Erin Gilmore",
+    name: "Erin Pittard",
     role: "Instructor",
     image:
-      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
+      "https://pilates-connection.s3.amazonaws.com/img/team-erin-p.jpg",
   },
   {
-    name: "Jill Dailey",
+    name: "Amelia Wise",
     role: "Instructor",
     image:
-      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
+      "https://pilates-connection.s3.amazonaws.com/img/team-amelia.png",
   },
   {
-    name: "Kimberly Dye",
+    name: "Bonnie Raunau",
     role: "Instructor",
     image:
-      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
+      "https://pilates-connection.s3.amazonaws.com/img/team-bonnie-r.png",
   },
   {
-    name: "Kimberly Dye",
+    name: "Michelle Lemeh",
     role: "Instructor",
     image:
-      "https://images.squarespace-cdn.com/content/v1/5c6eec0b7d0c91444dc37ca9/1550784498468-YVZQ0TKNVZ5NFVVZQUJ4/Kim+Dye.jpg",
+      "https://pilates-connection.s3.amazonaws.com/img/team-michelle-l.png",
   },
 ];
 

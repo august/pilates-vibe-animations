@@ -4,12 +4,10 @@ const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="reveal mx-auto max-w-2xl text-center">
           <h2 className="font-serif text-3xl font-medium md:text-4xl">
-            Welcome to Our Studio
+            Welcome to The Pilates Connection
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-charcoal/80">
-            We believe in the transformative power of Pilates. Our studio offers
-            a sanctuary where mind and body unite, guided by expert instructors
-            who are passionate about your journey to wellness.
+          At our studio, we embrace the transformative power of Pilates. Here, you'll find a sanctuary where mind and body come together, guided by expert instructors dedicated to supporting your path to wellness..
           </p>
         </div>
       </div>
