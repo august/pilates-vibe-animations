@@ -1,4 +1,5 @@
 import { Separator } from "@/components/ui/separator";
+import { Dumbbell } from "lucide-react";
 
 const WhatIsPilatesSection = () => {
   return (
@@ -41,8 +42,11 @@ const WhatIsPilatesSection = () => {
           </div>
         </div>
 
-        <div className="mx-auto my-16 w-2/3">
+        <div className="mx-auto my-16 w-2/3 relative">
           <Separator className="bg-taupe/20" />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4">
+            <Dumbbell className="h-6 w-6 text-taupe" />
+          </div>
         </div>
 
         <div className="reveal mt-16 grid gap-12 md:grid-cols-2">
