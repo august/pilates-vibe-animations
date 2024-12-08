@@ -15,7 +15,7 @@ const HeroSection = () => {
           Transform Your Body, Elevate Your Mind
           </h1>
           <p className="animate-fade-up font-sans text-lg text-white/90 animation-delay-200 md:text-xl">
-            The Pilates Connection<br />
+            <span className="font-medium block font-weight-bold text-4xl">The Pilates Connection</span>
             Premium Pilates Studio in Marina del Rey
           </p>
         </div>

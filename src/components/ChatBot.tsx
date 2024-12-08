@@ -11,7 +11,7 @@ interface Message {
 
 const INITIAL_MESSAGE = {
   role: "assistant" as const,
-  content: "Hi! I'm your Pilates assistant. I can help you learn about Pilates, our studio, pricing, and how to get started. What would you like to know?",
+  content: "Hi! I'm your Pru, your personal Pilates assistant. I can help you learn about Pilates, our studio, pricing, and how to get started. What would you like to know?",
 };
 
 const ChatBot = () => {
