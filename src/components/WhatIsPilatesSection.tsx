@@ -13,7 +13,7 @@ const WhatIsPilatesSection = () => {
           <div className="flex flex-col justify-center space-y-6">
             <h2 className="font-serif text-3xl font-medium md:text-4xl">What is Pilates?</h2>
             <p className="text-lg leading-relaxed text-charcoal/80">
-              Pilates is a system of physical and mental conditioning that uses resistance rather than impact to strengthen and stretch the entire body, while calming and focusing the mind. The emphasis is on quality of movement rather than quantity of repetitions.
+            Pilates is a dynamic system of physical and mental conditioning that emphasizes resistance over impact. Its aim is to strengthen and stretch your entire body while calming and focusing your mind. The secret is in the details: every movement is intentional, prioritizing quality over quantity.
             </p>
             <div className="space-y-4">
               <h3 className="font-serif text-xl font-medium">Core Benefits</h3>

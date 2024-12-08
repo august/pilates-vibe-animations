@@ -12,10 +12,11 @@ const HeroSection = () => {
       <div className="relative flex h-full items-end pb-32 justify-center text-center">
         <div className="px-4">
           <h1 className="animate-fade-up font-serif text-5xl font-medium text-white md:text-7xl">
-            Elevate Your Practice
+          Transform Your Body, Elevate Your Mind
           </h1>
           <p className="animate-fade-up font-sans text-lg text-white/90 animation-delay-200 md:text-xl">
-            Premium Pilates Studio in the Heart of the City
+            The Pilates Connection<br />
+            Premium Pilates Studio in Marina del Rey
           </p>
         </div>
       </div>
