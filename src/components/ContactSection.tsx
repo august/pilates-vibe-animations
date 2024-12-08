@@ -47,7 +47,7 @@ const ContactSection = () => {
               </p>
             </div>
             <div className="mt-8">
-              <button className="rounded-full border border-white px-8 py-3 transition-colors hover:bg-white hover:text-moss">
+              <button className="rounded-md border border-white px-8 py-3 transition-colors hover:bg-white hover:text-moss">
                 Book a Class
               </button>
             </div>
@@ -92,7 +92,7 @@ const ContactSection = () => {
               </div>
               <button
                 type="submit"
-                className="w-full rounded-full border border-white px-8 py-3 transition-colors hover:bg-white hover:text-moss"
+                className="w-full rounded-md border border-white px-8 py-3 transition-colors hover:bg-white hover:text-moss"
               >
                 Send Message
               </button>
