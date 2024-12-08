@@ -28,6 +28,8 @@ const ContactSection = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const mapUrl = "https://www.google.com/maps/place/3989+S+Centinela+Ave+%23203,+Los+Angeles,+CA+90066";
+
   return (
     <section className="bg-moss py-20 text-white">
       <div className="container mx-auto px-4">
@@ -37,14 +39,26 @@ const ContactSection = () => {
               Visit Us
             </h2>
             <div className="mt-8 space-y-4">
-              <p className="flex items-center gap-3">
-                <MapPin className="h-5 w-5" />
-                123 Wellness Street, City Center
-              </p>
-              <p className="flex items-center gap-3">
+              <a 
+                href={mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 hover:text-cream transition-colors"
+              >
+                <MapPin className="h-5 w-5 mt-1 flex-shrink-0" />
+                <div>
+                  3989 South Centinela Avenue<br />
+                  Suite 203<br />
+                  Los Angeles, CA 90066
+                </div>
+              </a>
+              <a 
+                href="tel:+14242592320"
+                className="flex items-center gap-3 hover:text-cream transition-colors"
+              >
                 <Phone className="h-5 w-5" />
-                (555) 123-4567
-              </p>
+                (424) 259-2320
+              </a>
             </div>
             <div className="mt-8">
               <button className="rounded-md border border-white px-8 py-3 transition-colors hover:bg-white hover:text-moss">
